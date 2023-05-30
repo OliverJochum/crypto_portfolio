@@ -4,6 +4,10 @@ class HeaderScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     var currency = 'f';
+
+    void onPressed(){
+
+    }
     // TODO: implement build
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -18,9 +22,9 @@ class HeaderScreen extends StatelessWidget{
             borderRadius: BorderRadius.circular(8.0)
           ),
           child: Row(children: [
-            Icon(icon),
+            const Icon(Icons.money),
             Text(currency),
-            ElevatedButton(onPressed: onPressed, child: child)
+            ElevatedButton(onPressed: onPressed, child: const Icon(Icons.arrow_circle_down))
           ],),
         )
       ],
