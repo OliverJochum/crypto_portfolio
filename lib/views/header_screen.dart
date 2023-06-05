@@ -5,7 +5,7 @@ class HeaderScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    var currency = 'f';
+    var currency = '123456';
 
     void onPressed(){
 
@@ -19,6 +19,7 @@ class HeaderScreen extends StatelessWidget{
           child: IconButton(onPressed: onPressed, icon: Image.asset('assets/images/app_logo.png',width: 50,height: 50)),
         ),
         Container(
+          margin: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,
@@ -26,7 +27,7 @@ class HeaderScreen extends StatelessWidget{
             ),
             borderRadius: BorderRadius.circular(8.0)
           ),
-          child: Expanded(
+          
             child: Row(children: [
               const Spacer(),
               const Icon(Icons.attach_money),
@@ -36,7 +37,6 @@ class HeaderScreen extends StatelessWidget{
               ElevatedButton(onPressed: onPressed, child: const Icon(Icons.arrow_circle_down)),
               const Spacer()
             ],),
-          ),
         )
       ],
     );
