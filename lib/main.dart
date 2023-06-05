@@ -1,10 +1,13 @@
 
+import 'package:crypto_portfolio/views/holdings_screen.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'views/header_screen.dart';
+import 'views/holdings_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async{
+  await dotenv.load();
   runApp(MyApp());
 }
 
@@ -37,11 +40,8 @@ class MyHomePage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Scaffold(
-      body: Column(
-        children: const [
-          HeaderScreen()
-        ],
-      ),
-    );
+      body: HoldingsScreen()
+      );
+    
   }
 }
