@@ -70,10 +70,23 @@ class BtcWallet implements Wallet{
     return amount;
   }
 
-  @override
-  double getValue() {
-    // TODO: implement getValue
-    throw UnimplementedError();
+  Future<double> getValue(String currency) async{
+
+    final response = await http.get( 
+      Uri.parse("https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=1&convert=$currency"),
+      headers: {
+        'X-CMC_PRO_API_KEY': dotenv.env['COINMARKETCAP_API_KEY']!,
+        "Accept": "application/json",
+      }
+    );
+
+    data = jsonDecode(response.body);
+
+    double btcValue = data['data']['1']['quote'][currency]['price'];
+    double amount = await getAmount();
+
+
+    return btcValue * amount;
   }
 
   
@@ -81,7 +94,7 @@ class BtcWallet implements Wallet{
   Future<void> apiRequest(String url, String query, String variables) async {
     final gqlUrl = Uri.parse(url);
     final headers = {
-      "X-API-KEY": dotenv.env['API_KEY']!,
+      "X-API-KEY": dotenv.env['BITQUERY_API_KEY']!,
       "Content-Type": "application/json",
     };
     final bodyy = {
