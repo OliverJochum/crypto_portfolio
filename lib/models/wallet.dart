@@ -9,6 +9,8 @@ abstract class Wallet{
 
   Future<double> getAmount(); //return the amount of cryptocurrency in that currency
   Future<double> getValue(String currency); //return the value of the cryptocurrency as a dollar amount
+  Future<List<Transaction>> getTransactions(DateTime from, DateTime till);
+  Future<List<Transaction>> getAllTransactions();
 
   Future<void> apiRequest(String url, String query,String variables);
 
