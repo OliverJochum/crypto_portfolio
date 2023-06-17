@@ -2,6 +2,7 @@ import 'package:crypto_portfolio/models/transaction.dart';
 
 abstract class Wallet{
   String address;
+  String network;
   List<Transaction> transactions = List<Transaction>.empty();
   Map<String, dynamic> data = {};
   String url = "https://graphql.bitquery.io/";
@@ -14,5 +15,5 @@ abstract class Wallet{
 
   Future<void> apiRequest(String url, String query,String variables);
 
-  Wallet(this.address);
+  Wallet(this.address, this.network);
 }

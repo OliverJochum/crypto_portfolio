@@ -11,6 +11,9 @@ class BtcWallet implements Wallet{
   String address;
 
   @override
+  String network = "BTC";
+
+  @override
   List<Transaction> transactions = List<Transaction>.empty();
 
   @override
