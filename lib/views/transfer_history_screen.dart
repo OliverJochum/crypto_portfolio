@@ -1,8 +1,11 @@
+import 'package:crypto_portfolio/viewmodels/header_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:crypto_portfolio/views/header_screen.dart';
 
 class TransferHistoryScreen extends StatefulWidget{
-  const TransferHistoryScreen({Key? key}) : super(key: key);
+
+  final HeaderViewModel headerViewModel;
+  const TransferHistoryScreen({super.key, required this.headerViewModel});
 
   @override
 
@@ -16,7 +19,7 @@ class _TransferHistoryScreenState extends State<TransferHistoryScreen>{
     return Scaffold(
       body: Column(
         children: [
-          HeaderScreen(),
+          HeaderScreen(headerViewModel: widget.headerViewModel,),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.all(10.0),
