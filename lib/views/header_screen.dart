@@ -1,7 +1,17 @@
+import 'package:crypto_portfolio/viewmodels/header_viewmodel.dart';
 import 'package:flutter/material.dart';
 
-class HeaderScreen extends StatelessWidget{
-  const HeaderScreen({Key? key}) : super(key:key);
+class HeaderScreen extends StatefulWidget{
+  final HeaderViewModel headerViewModel;
+  
+  const HeaderScreen({super.key, required this.headerViewModel});
+
+  @override
+  // ignore: libgrary_private_types_in_public_api
+  _HeaderScreenState createState()=> _HeaderScreenState();
+}
+
+class _HeaderScreenState extends State<HeaderScreen>{
 
   @override
   Widget build(BuildContext context) {
