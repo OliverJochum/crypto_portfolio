@@ -20,7 +20,7 @@ class BtcWallet implements Wallet{
   Map<String, dynamic> data = {};
 
   @override
-  String url = "https://graphql.bitquery.io/";
+  String bitqueryURL = "https://graphql.bitquery.io/";
 
   @override
   Future<double> getAmount() async {
@@ -66,7 +66,7 @@ class BtcWallet implements Wallet{
     String variables = '''
     {"limit":10,"offset":0,"network":"bitcoin","address":"$address","from":null,"till":null,"dateFormat":"%Y-%m"}
     ''';
-    await apiRequest(url, amountQuery,variables);
+    await apiRequest(bitqueryURL, amountQuery,variables);
 
     double inputs = data['data']['bitcoin']['inputs'][0]['value'];
     double outputs = data['data']['bitcoin']['outputs'][0]['value'];
@@ -74,6 +74,7 @@ class BtcWallet implements Wallet{
     return amount;
   }
 
+  @override
   Future<double> getValue(String currency) async{
 
     final response = await http.get( 
@@ -192,7 +193,7 @@ class BtcWallet implements Wallet{
       "dateFormat": "%Y-%m"
       }''';
 
-      await apiRequest(url, transactionQuery, variables);
+      await apiRequest(bitqueryURL, transactionQuery, variables);
 
 
       List<Transaction> inbound = List<Transaction>.empty(growable: true);
