@@ -5,7 +5,7 @@ abstract class Wallet{
   String network;
   List<Transaction> transactions = List<Transaction>.empty();
   Map<String, dynamic> data = {};
-  String url = "https://graphql.bitquery.io/";
+  String bitqueryURL = "https://graphql.bitquery.io/";
 
 
   Future<double> getAmount(); //return the amount of cryptocurrency in that currency
